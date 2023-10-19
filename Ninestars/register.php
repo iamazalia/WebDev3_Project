@@ -33,33 +33,21 @@ if (isset($_POST['submit'])) {
                         VALUES ('$fname', '$lname', '$gender', '$email', '$password','$role','$status')";
 
         if ($con->query($sql) === true) {
-            $sql = "SELECT * FROM user WHERE email = '" . $email . "' and Password = '" . $password . "'";
-            $result = $con->query($sql);
-            $row = $result->fetch_assoc();
-
             echo "<script language='javascript'>
-            alert('Registered Successfully!');
+            alert('Registered Successfully! Please Login to your Account');
+            window.location.href='login.html';
             </script>";
-
-            $_SESSION['id'] = $row['id'];
-            $_SESSION['role'] = $row['role'];
-            
-            header('Location: userPage.php');
-            
         } else {
             echo 'Error: ' . $sql . '<br>' . $con->error;
         }
-
-
     } else {
-        $password = $_POST['password'];
-        $confirmPassword = $_POST['confirm-password'];
-
         echo "<script>
-                alert('Password is Incorrect!');
-                window.location.href ='register.html';            
-            </script>";
+        alert('Password Doesn\'t match');
+        window.location.href ='register.html';            
+    </script>";
     }
-
-    
+} else {
+    echo "<script>alert('Error Occured');
+        window.location.href = 'register.html';
+    </script>";
 }

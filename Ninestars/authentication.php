@@ -7,14 +7,15 @@ $password = $_POST["Password"];
 
 
 $conn = getConnection();
-$sql = "SELECT * from user where email = '".$username."' and password = '".$password."'";
+$sql = "SELECT * from user where email = '".$username."' AND password = '".$password."'";
 $result = $conn->query($sql);
 $row = $result->fetch_assoc();
+
 if($row["email"] == $username && $row["password"]== $password)
 {
     if($row["role"]=="admin")
     {        
-        header("Location: dashboard.php");
+        header("Location: admin/admin.php");
     }
     else
     {        
@@ -26,7 +27,10 @@ if($row["email"] == $username && $row["password"]== $password)
 }
 else
 {
-    header("Location: login.html");
+    echo "<script>alert('Invalid Email or Password');
+        window.location.href='login.html';
+    </script>";
+
 }
 closeConnection();
 

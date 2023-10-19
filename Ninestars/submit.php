@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $time = $_POST["time"];
     $location = $_POST["location"];
     $ootd = $_POST["ootd"];
-    echo $userID = $_SESSION['id'];
+    $userID = $_SESSION['id'];
 
  include_once("db.php");
  $conn=getConnection();
