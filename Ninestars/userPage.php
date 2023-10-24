@@ -105,7 +105,6 @@ while ($rowData = $resultActivity->fetch_assoc()) {
                                     <li><a href="#add-activity">Add Activity</a></li>
                                     <li><a href="#edit-activity">Edit Activity</a></li>
                                     <li><a href="#set-activity">Set Activity</a></li>
-                                    <li><a href="#action-activity">Activities</a></li>
                                     <li><a href="#announcements">Announcements</a></li>
                                 </ul>
                             </li>
@@ -354,12 +353,11 @@ while ($rowData = $resultActivity->fetch_assoc()) {
                                         <th>Action</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <!-- Add your table rows here -->
-
+                                <tbody>                      
                                     <?php if (!empty($activities)) {
                                         $countActivity = 1;
-                                        foreach ($activities as $activity) { ?>
+                                        foreach ($activities as $activity) { 
+                                            if($activity['remark']== null){?>
                                             <tr>
                                                 <td><?php echo $countActivity++ ?></td>
                                                 <td><?php echo $activity['activityName'] ?></td>
@@ -371,13 +369,13 @@ while ($rowData = $resultActivity->fetch_assoc()) {
                                                     <div class="dropdown">
                                                         <button>Set</button>
                                                         <div class="dropdown-content">
-                                                            <a href="#">Cancel</a>
-                                                            <a href="#">Done</a>
+                                                            <a href="updateACtRemark.php?id=<?=$activity['id']?>&status=cancelled">Cancel</a>
+                                                            <a href="updateACtRemark.php?id=<?=$activity['id']?>&status=done">Done</a>
                                                         </div>
                                                 </td>
                                             </tr>
                                     <?php }
-                                    } ?>
+                                    }} ?>
 
                                     </tr>
                                 </tbody>
@@ -386,88 +384,7 @@ while ($rowData = $resultActivity->fetch_assoc()) {
                     </div>
                     <!-- </head> -->
                 </div>
-                <div id="action-activity" class="container">
-                    <div class="cont">
-                        <h2 style="text-align:center">Activities</h2><br>
-                        <table>
-                            <h3>Done</h3>
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Name</th>
-                                    <th>Date</th>
-                                    <th>Time</th>
-                                    <th>Location</th>
-                                    <th>OOTD</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php if (!empty($activities)) {
-                                    $countActivity = 1;
-                                    foreach ($activities as $activity) { ?>
-                                        <tr>
-                                            <td><?php echo $countActivity++ ?></td>
-                                            <td><?php echo $activity['activityName'] ?></td>
-                                            <td><?php echo $activity['date'] ?></td>
-                                            <td><?php echo $activity['time'] ?></td>
-                                            <td><?php echo $activity['location'] ?></td>
-                                            <td><?php echo $activity['ootd'] ?></td>
-                                            <td>
-                                                <div class="dropdown">
-                                                    <button>Set</button>
-                                                    <div class="dropdown-content">
-                                                        <a href="#">Cancel</a>
-                                                        <a href="#">Done</a>
-                                                    </div>
-                                            </td>
-                                        </tr>
-                                <?php }
-                                } ?>
-
-                                </tr>
-                            </tbody>
-                        </table>
-                        <table>
-                            <h3>Cancelled</h3>
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Name</th>
-                                    <th>Date</th>
-                                    <th>Time</th>
-                                    <th>Location</th>
-                                    <th>OOTD</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php if (!empty($activities)) {
-                                    $countActivity = 1;
-                                    foreach ($activities as $activity) { ?>
-                                        <tr>
-                                            <td><?php echo $countActivity++ ?></td>
-                                            <td><?php echo $activity['activityName'] ?></td>
-                                            <td><?php echo $activity['date'] ?></td>
-                                            <td><?php echo $activity['time'] ?></td>
-                                            <td><?php echo $activity['location'] ?></td>
-                                            <td><?php echo $activity['ootd'] ?></td>
-                                            <td>
-                                                <div class="dropdown">
-                                                    <button>Set</button>
-                                                    <div class="dropdown-content">
-                                                        <a href="#">Cancel</a>
-                                                        <a href="#">Done</a>
-                                                    </div>
-                                            </td>
-                                        </tr>
-                                <?php }
-                                } ?>
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+   
                     <!-- </body> -->
 
 
@@ -484,11 +401,15 @@ while ($rowData = $resultActivity->fetch_assoc()) {
 
 <!-- main content area end -->
 <!-- footer area start-->
+
+<div class="footer">
 <footer>
-    <div class="footer-area">
-        <p>© Copyright 2018. All right reserved. Template by <a href="https://colorlib.com/wp/">Colorlib</a>.</p>
-    </div>
-</footer>
+        <div class="footer-area">
+            <p>© Copyright 2018. All right reserved. Template by <a href="https://colorlib.com/wp/">Colorlib</a>.</p>
+        </div>
+    </footer>
+</div>
+    
 <!-- footer area end-->
 </div>
 <!-- page container area end -->
