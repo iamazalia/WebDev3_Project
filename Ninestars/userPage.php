@@ -188,7 +188,7 @@ while ($rowData = $resultActivity->fetch_assoc()) {
                             </li>
                             <li class="settings-btn">
                                 <i class="fa fa-gear" style="font-size:30px"></i>
-                            </li>
+                            </li>   
                         </ul>
                     </div>
                 </div>

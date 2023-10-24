@@ -32,15 +32,15 @@ if (isset($_POST['submit'])) {
         $sql = "INSERT INTO `user` (`Firstname`, `Lastname`, `gender`, `Email`, `Password`,`Role`,`status`) 
                         VALUES ('$fname', '$lname', '$gender', '$email', '$password','$role','$status')";
 
-        if ($con->query($sql) === true) {
-            echo "<script language='javascript'>
-            alert('You have been successfully registered! Please log in to your account.');
-            window.location.href='login.html';
-            </script>";
-        } else {
-            echo 'Error: ' . $sql . '<br>' . $con->error;
-        }
-    } else {
+    //     if ($con->query($sql) === true) {
+    //         echo "<script language='javascript'>
+    //         alert('You have been successfully registered! Please log in to your account.');
+    //         window.location.href='login.html';
+    //         </script>";
+    //     } else {
+    //         echo 'Error: ' . $sql . '<br>' . $con->error;
+    //     }
+    // } else {
         echo "<script>
         alert('Password doesn't match!');
         window.location.href ='register.html';            

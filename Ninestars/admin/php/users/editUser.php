@@ -19,7 +19,7 @@
                 echo "<script>alert('Updated $firstname Sucessfully'); window.location.href='../../admin.php?page=users'</script>";
             } else {
                 echo "Error updating user record: " . mysqli_error($conn);
-            }
+            }       
 
         }
     }else{
