@@ -390,17 +390,12 @@ while ($rowData = $resultActivity->fetch_assoc()) {
 
 </html>
 
-
-
 </div>
 
 <div id="announcements">
-    <h1>Announcements</h1>
+    <h1 style="margin-left: 5vh;">Announcements</h1>
     <?php getAnnouncement(); ?>
 </div>
-
-<!-- main content area end -->
-<!-- footer area start-->
 
 <div class="footer">
 <footer>
@@ -409,16 +404,14 @@ while ($rowData = $resultActivity->fetch_assoc()) {
         </div>
     </footer>
 </div>
-    
-<!-- footer area end-->
+
 </div>
-<!-- page container area end -->
-<!-- offset area start -->
+
 <div class="offset-area">
     <div class="offset-close"><i class="ti-close"></i></div>
     <ul class="nav offset-menu-tab">
         <li><a class="active" data-toggle="tab" href="#activity">Activity</a></li>
-        <li><a data-toggle="tab" href="#settings">Settings</a></li>
+        <li><a data-toggle="tab" href="#settings">Settings</a></li>     
     </ul>
     <div class="offset-content tab-content">
         <div id="activity" class="tab-pane fade in show active">

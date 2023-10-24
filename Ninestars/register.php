@@ -34,7 +34,7 @@ if (isset($_POST['submit'])) {
 
         if ($con->query($sql) === true) {
             echo "<script language='javascript'>
-            alert('Registered Successfully! Please Login to your Account');
+            alert('You have been successfully registered! Please log in to your account.');
             window.location.href='login.html';
             </script>";
         } else {
@@ -42,7 +42,7 @@ if (isset($_POST['submit'])) {
         }
     } else {
         echo "<script>
-        alert('Password Doesn\'t match');
+        alert('Password doesn't match!');
         window.location.href ='register.html';            
     </script>";
     }

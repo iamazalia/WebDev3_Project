@@ -27,7 +27,7 @@ if($row["email"] == $username && $row["password"]== $password)
 }
 else
 {
-    echo "<script>alert('Invalid Email or Password');
+    echo "<script>alert('Authentication Failure!');
         window.location.href='login.html';
     </script>";
 
